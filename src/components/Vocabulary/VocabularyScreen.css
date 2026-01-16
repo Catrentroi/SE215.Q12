@@ -1,7 +1,7 @@
 .vocabulary-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #e3f2fd 0%, #90caf9 100%);
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .vocab-header {

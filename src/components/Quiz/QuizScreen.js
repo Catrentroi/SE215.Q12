@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './QuizScreen.css';
 
 export default function QuizScreen() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showHelper, setShowHelper] = useState(false);
+  
+  const isFromStreakRestore = location.state?.fromStreakRestore;
+  const groupId = location.state?.groupId;
 
   const question = {
     number: 1,
@@ -30,12 +34,25 @@ export default function QuizScreen() {
 
   const handleNext = () => {
     if (selectedAnswer === 'C') {
-      navigate('/quiz-complete');
+      if (isFromStreakRestore) {
+        navigate('/quiz-complete', { 
+          state: { 
+            fromStreakRestore: true,
+            groupId: groupId 
+          } 
+        });
+      } else {
+        navigate('/quiz-complete');
+      }
     }
   };
 
   const handleClose = () => {
-    navigate('/home');
+    if (isFromStreakRestore) {
+      navigate('/group-streak');
+    } else {
+      navigate('/home');
+    }
   };
 
   return (

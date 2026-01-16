@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import './FeedScreen.css';
+import teacherPost from '../../assets/teacher-post.jpg';
 
 export default function FeedScreen() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function FeedScreen() {
     },
     content: {
       title: 'Learn 10 common English phrases used in daily conversations! 💫 Perfect for beg...',
-      image: 'teacher-post.jpg',
+      image: teacherPost,
       hashtags: ['#EnglishLearning', '#DailyPhrases', '#LearnEnglish', '#ESL'],
       music: '🎵 Chill Lofi Beats'
     },
@@ -84,7 +85,7 @@ export default function FeedScreen() {
                 </div>
               </div>
               <div className="feed-post-image">
-                <img src="/placeholder-post.jpg" alt="Post" />
+                <img src={teacherPost} alt="Post" />
                 <div className="feed-post-overlay">
                   <p>{post.content.title}</p>
                   <div className="feed-post-hashtags">

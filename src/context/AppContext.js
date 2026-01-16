@@ -184,6 +184,14 @@ export const AppProvider = ({ children }) => {
     }));
   };
 
+  const restoreStreak = () => {
+    setLearning(prev => ({
+      ...prev,
+      streak: prev.streak + 1
+    }));
+    earnCoins(20); // Bonus coins for restoring streak
+  };
+
   const completeLesson = () => {
     setLearning(prev => ({
       ...prev,
@@ -220,6 +228,7 @@ export const AppProvider = ({ children }) => {
     updateTaskProgress,
     completeOnboarding,
     increaseStreak,
+    restoreStreak,
     completeLesson,
     learnWord
   };

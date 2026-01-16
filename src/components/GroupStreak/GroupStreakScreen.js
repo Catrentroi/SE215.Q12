@@ -1,18 +1,69 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import './GroupStreakScreen.css';
 
 export default function GroupStreakScreen() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { learning } = useApp();
   const [selectedGroup, setSelectedGroup] = useState(1);
-  
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  useEffect(() => {
+    if (location.state?.streakRestored) {
+      const restoredGroupId = location.state.groupId;
+      if (restoredGroupId) {
+        setSelectedGroup(restoredGroupId);
+      }
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    }
+  }, [location.state]);
+
   const groups = [
-    { id: 1, name: '800+ TOEIC', icon: '🔥', members: '🔥', deadline: 'Alo 11/10/2025' },
-    { id: 2, name: 'IELTS 8.0', icon: '🥈', members: '🥈', deadline: 'Đã chia sẻ một... 12/8/2025' },
-    { id: 3, name: 'Anh em cày khẻ 🔥', icon: '🔥', members: '🔥', deadline: 'Đã chia sẻ một... 25/6/2025' }
+    { 
+      id: 1, 
+      name: '800+ TOEIC', 
+      icon: '🔥', 
+      members: '🔥', 
+      deadline: 'Alo 11/10/2025',
+      streakDays: 7,
+      streakBroken: false // Nhóm này đang giữ streak tốt
+    },
+    { 
+      id: 2, 
+      name: 'IELTS 8.0', 
+      icon: '🥈', 
+      members: '🥈', 
+      deadline: 'Đã chia sẻ một... 12/8/2025',
+      streakDays: 3,
+      streakBroken: true, // Nhóm này đã bị mất streak
+      lostStreakDays: 3 // Đã mất 3 ngày streak
+    },
+    { 
+      id: 3, 
+      name: 'Anh em cày khẻ 🔥', 
+      icon: '🔥', 
+      members: '🔥', 
+      deadline: 'Đã chia sẻ một... 25/6/2025',
+      streakDays: 4,
+      streakBroken: false // Nhóm này đang giữ streak tốt
+    }
   ];
+
+  const handleRestoreStreak = (groupId) => {
+    navigate('/quiz', { 
+      state: { 
+        fromStreakRestore: true,
+        groupId: groupId 
+      } 
+    });
+  };
+
+  const selectedGroupData = groups.find(g => g.id === selectedGroup);
 
   const lessons = [
     { id: 1, title: 'Advice and suggestions: Lời khuyên và lời đề nghị', example: 'I reckon you should stop now.' },
@@ -73,9 +124,9 @@ export default function GroupStreakScreen() {
 
         <div className="group-main">
           <div className="group-chat-header">
-            <span className="chat-avatar">🔥</span>
+            <span className="chat-avatar">{selectedGroupData.icon}</span>
             <div>
-              <div className="chat-group-name">800+ TOEIC 🔥</div>
+              <div className="chat-group-name">{selectedGroupData.name}</div>
               <div className="chat-slogan">Cùng Chillingo tiến bộ mỗi ngày nào!</div>
             </div>
           </div>
@@ -104,9 +155,23 @@ export default function GroupStreakScreen() {
             </div>
 
             <div className="lesson-stats">
-              <p>Bạn đã giữ chuỗi 7 ngày học tập cùng nhau 🔥</p>
-              <button className="streak-restore-btn">Khôi phục chuỗi ngay 🔥</button>
-              <p>Bạn đã giữ chuỗi 4 ngày học tập cùng nhau 🔥</p>
+              {selectedGroupData.streakBroken ? (
+                <>
+                  <p>⚠️ Bạn đã mất chuỗi {selectedGroupData.lostStreakDays} ngày học tập cùng nhóm</p>
+                  <button 
+                    className="streak-restore-btn" 
+                    onClick={() => handleRestoreStreak(selectedGroupData.id)}
+                  >
+                    Khôi phục chuỗi ngay 🔥
+                  </button>
+                  <p className="restore-info">Bạn có 1 lượt khôi phục chuỗi trong tháng này</p>
+                </>
+              ) : (
+                <>
+                  <p>🎉 Bạn đã giữ chuỗi {selectedGroupData.streakDays} ngày học tập cùng nhóm 🔥</p>
+                  <p className="keep-going">Hãy tiếp tục giữ vững phong độ nhé!</p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -117,12 +182,31 @@ export default function GroupStreakScreen() {
           <button className="group-detail-btn">Giữ chuỗi kìa</button>
           <button className="group-detail-btn">Giữ chuỗi</button>
 
-          <p className="group-detail-text">Bạn đã mất chuỗi 3 ngày học tập cùng nhau 🔥</p>
-          <p className="group-detail-text">Hãy khôi phục chuỗi ngay bây giờ. Bạn có 1 lượt khôi phục chuỗi trong tháng này</p>
-          <button className="restore-btn">Khôi phục chuỗi ngay 🔥</button>
-          <p className="group-detail-text">Bạn đã giữ chuỗi 4 ngày học tập cùng nhau 🔥</p>
+          {selectedGroupData.streakBroken ? (
+            <>
+              <p className="group-detail-text">⚠️ Bạn đã mất chuỗi {selectedGroupData.lostStreakDays} ngày học tập cùng nhau 🔥</p>
+              <p className="group-detail-text">Hãy khôi phục chuỗi ngay bây giờ. Bạn có 1 lượt khôi phục chuỗi trong tháng này</p>
+              <button className="restore-btn" onClick={() => handleRestoreStreak(selectedGroupData.id)}>
+                Khôi phục chuỗi ngay 🔥
+              </button>
+            </>
+          ) : (
+            <p className="group-detail-text">🎉 Bạn đã giữ chuỗi {selectedGroupData.streakDays} ngày học tập cùng nhau 🔥</p>
+          )}
         </div>
       </div>
+
+      {showSuccessMessage && (
+        <div className="success-notification">
+          <div className="success-content">
+            <span className="success-icon">✅</span>
+            <div className="success-text">
+              <strong>Khôi phục chuỗi thành công!</strong>
+              <p>Nhóm "{selectedGroupData.name}" đã được khôi phục streak 🔥</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

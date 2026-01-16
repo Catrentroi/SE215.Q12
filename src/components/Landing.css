@@ -82,7 +82,7 @@
 }
 
 .heading {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: #5275ed;
@@ -91,7 +91,7 @@
 }
 
 .description {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   color: #5275ed;
   line-height: 48.75px;
@@ -106,7 +106,7 @@
 .start-button {
   background-color: white;
   color: #5275ed;
-  font-family: 'Nunito', Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 24px;
   font-weight: 900;
   padding: 20px 80px;

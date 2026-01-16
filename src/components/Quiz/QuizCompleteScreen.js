@@ -1,15 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import './QuizCompleteScreen.css';
 
 export default function QuizCompleteScreen() {
   const navigate = useNavigate();
-  const { completeLesson, earnCoins } = useApp();
+  const location = useLocation();
+  const { completeLesson, restoreStreak } = useApp();
+  
+  const isFromStreakRestore = location.state?.fromStreakRestore;
+  const groupId = location.state?.groupId;
 
   const handleContinue = () => {
-    completeLesson(); // Marks lesson as complete and earns coins
-    navigate('/home');
+    if (isFromStreakRestore) {
+      restoreStreak(); // Restore streak and earn bonus coins
+      navigate('/group-streak', { 
+        state: { 
+          streakRestored: true,
+          groupId: groupId 
+        } 
+      });
+    } else {
+      completeLesson(); // Marks lesson as complete and earns coins
+      navigate('/home');
+    }
   };
 
   return (
@@ -18,17 +32,25 @@ export default function QuizCompleteScreen() {
       <div className="quiz-complete-circle-right"></div>
 
       <div className="quiz-complete-content">
-        <h1>Giỏi quá! Chúng ta đã hoàn thành chi tiết của ngày hôm nay rồi!</h1>
+        <h1>
+          {isFromStreakRestore 
+            ? 'Tuyệt vời! Bạn đã hoàn thành mini-lesson!' 
+            : 'Giỏi quá! Chúng ta đã hoàn thành chi tiết của ngày hôm nay rồi!'}
+        </h1>
         
         <div className="quiz-complete-pet">
-          <div className="pet-dog">🐕</div>
+          <div className="pet-dog">{isFromStreakRestore ? '🔥' : '🐕'}</div>
         </div>
 
         <button className="quiz-complete-button" onClick={handleContinue}>
-          Trang chủ
+          {isFromStreakRestore ? 'Quay lại Group Streak' : 'Trang chủ'}
         </button>
         
-        <p className="reward-message">🎉 +10 coins! Hoàn thành bài học!</p>
+        <p className="reward-message">
+          {isFromStreakRestore 
+            ? '🔥 +20 coins! Streak đã được khôi phục!' 
+            : '🎉 +10 coins! Hoàn thành bài học!'}
+        </p>
       </div>
 
       <div className="quiz-complete-house-icon">
