@@ -1,0 +1,208 @@
+.onboarding-container {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.onboarding-circle-left {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(194, 207, 255, 0.2);
+  border-radius: 50%;
+}
+
+.onboarding-circle-right {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 223, 186, 0.2);
+  border-radius: 50%;
+}
+
+.onboarding-content {
+  max-width: 900px;
+  width: 90%;
+  z-index: 1;
+}
+
+.onboarding-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.question-number {
+  width: 48px;
+  height: 48px;
+  background: #5275ed;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.question-text {
+  color: #5275ed;
+  font-size: 30px;
+  margin: 0;
+  flex: 1;
+}
+
+.onboarding-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.onboarding-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: white;
+  border: 2px solid #5275ed;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(82, 117, 237, 0.1);
+  width: 100%;
+  text-align: left;
+}
+
+.onboarding-option:hover {
+  background: #f0f4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(82, 117, 237, 0.2);
+}
+
+.onboarding-option.selected {
+  background: #5275ed;
+  border-color: #5275ed;
+}
+
+.option-letter {
+  width: 48px;
+  height: 48px;
+  background: #5275ed;
+  border: 2px solid #5275ed;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.onboarding-option.selected .option-letter {
+  background: white;
+  color: #5275ed;
+}
+
+.option-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #5275ed;
+  font-size: 20px;
+}
+
+.onboarding-option.selected .option-content {
+  color: white;
+}
+
+.option-icon {
+  font-size: 32px;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.onboarding-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skip-button {
+  background: none;
+  border: none;
+  color: #5275ed;
+  font-size: 18px;
+  font-style: italic;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: opacity 0.3s;
+}
+
+.skip-button:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+.continue-button {
+  background: linear-gradient(135deg, #edca52 0%, #dbb842 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 16px 60px;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.continue-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 3px 8px 6px rgba(0, 0, 0, 0.3);
+}
+
+.continue-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.onboarding-house-icon {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .question-text {
+    font-size: 24px;
+  }
+  
+  .option-content {
+    font-size: 16px;
+  }
+  
+  .continue-button {
+    padding: 12px 40px;
+    font-size: 20px;
+  }
+}

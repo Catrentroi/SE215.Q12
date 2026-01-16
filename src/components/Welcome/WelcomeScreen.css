@@ -1,0 +1,93 @@
+.welcome-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+
+.welcome-circle-left {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(194, 207, 255, 0.3);
+  border-radius: 50%;
+}
+
+.welcome-circle-right {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 223, 186, 0.3);
+  border-radius: 50%;
+}
+
+.welcome-content {
+  text-align: center;
+  z-index: 1;
+  max-width: 600px;
+  width: 90%;
+  padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+  .welcome-heading {
+    font-size: 28px;
+  }
+  
+  .welcome-description {
+    font-size: 16px;
+  }
+}
+
+.welcome-heading {
+  color: #5275ed;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.welcome-description {
+  color: #5275ed;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.welcome-description p {
+  margin: 10px 0;
+}
+
+.welcome-start-button {
+  background: linear-gradient(135deg, #f5d659 0%, #e8c547 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 60px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 214, 89, 0.4);
+  transition: all 0.3s ease;
+}
+
+.welcome-start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 214, 89, 0.6);
+}
+
+.welcome-house-icon {
+  position: absolute;
+  bottom: 50px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}

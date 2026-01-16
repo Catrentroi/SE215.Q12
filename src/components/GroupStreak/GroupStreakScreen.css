@@ -1,0 +1,306 @@
+.group-streak-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Arial', sans-serif;
+}
+
+.group-header {
+  background: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.group-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5275ed;
+}
+
+.group-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.group-nav button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.group-nav button:hover,
+.group-nav button.active {
+  background: #f0f4ff;
+  color: #5275ed;
+  font-weight: bold;
+}
+
+.group-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.group-actions input {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+}
+
+.group-actions button {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.group-content {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.group-sidebar {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  height: fit-content;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.group-request-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.request-icon {
+  font-size: 32px;
+}
+
+.request-content strong {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+.request-content p {
+  font-size: 12px;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+
+.group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.group-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.group-item.active {
+  background: #e3f2fd;
+  border-left: 4px solid #5275ed;
+}
+
+.group-item:hover {
+  background: #f0f4ff;
+}
+
+.group-icon {
+  font-size: 32px;
+}
+
+.group-info {
+  flex: 1;
+}
+
+.group-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.group-deadline {
+  font-size: 12px;
+  color: #666;
+}
+
+.group-badge {
+  font-size: 16px;
+}
+
+.group-main {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.group-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.chat-avatar {
+  font-size: 48px;
+}
+
+.chat-group-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.chat-slogan {
+  font-size: 14px;
+  color: #666;
+}
+
+.group-lesson-card {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe57f 30%);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.lesson-highlight {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.lesson-icon {
+  font-size: 32px;
+}
+
+.lesson-info {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.lesson-content {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.lesson-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lesson-item:last-child {
+  border-bottom: none;
+}
+
+.lesson-item p {
+  margin: 0 0 4px 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.lesson-example {
+  color: #5275ed !important;
+  font-style: italic;
+}
+
+.lesson-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lesson-action-btn {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lesson-stats {
+  text-align: center;
+}
+
+.lesson-stats p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.streak-restore-btn {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.group-details {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.group-detail-btn {
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: left;
+}
+
+.group-detail-text {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0;
+}
+
+.restore-btn {
+  background: linear-gradient(135deg, #5275ed 0%, #667eea 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+}

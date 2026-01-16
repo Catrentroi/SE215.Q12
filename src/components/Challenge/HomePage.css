@@ -1,0 +1,606 @@
+.home-page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header {
+  background: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.home-logo > span {
+  font-size: 40px;
+}
+
+.home-logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5275ed;
+}
+
+.home-logo-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.home-nav {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.home-nav button {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.home-nav button:hover {
+  background: #f0f4ff;
+}
+
+.home-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.home-actions .streak-badge {
+  background: linear-gradient(135deg, #f5d659 0%, #e8c547 100%);
+  color: white;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+.home-actions button {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.home-content {
+  max-width: 800px;
+  width: 90%;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    flex-wrap: wrap;
+    padding: 8px 16px;
+  }
+
+  .home-nav {
+    order: 3;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .home-nav button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .home-content {
+    width: 95%;
+    margin: 30px auto;
+  }
+  
+  .banner-text h1 {
+    font-size: 48px;
+  }
+  
+  .path-description h2 {
+    font-size: 22px;
+  }
+  
+  .checkpoint {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+}
+
+.home-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.banner-text h1 {
+  color: white;
+  font-size: 64px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.banner-sloth {
+  position: absolute;
+  bottom: -20px;
+  right: 40px;
+  font-size: 200px;
+  opacity: 0.9;
+  transform: rotate(-15deg);
+}
+
+.home-path {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.path-description h2 {
+  color: #5275ed;
+  font-size: 28px;
+  font-weight: normal;
+  margin: 0 0 40px 0;
+  line-height: 1.5;
+}
+
+.path-description strong {
+  font-weight: 900;
+  color: #667eea;
+}
+
+.learning-path {
+  position: relative;
+  margin: 60px 0;
+}
+
+.path-checkpoints {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.checkpoint {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  background: white;
+  border: 4px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.checkpoint.done {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: white;
+  animation: pop 0.5s ease;
+}
+
+.checkpoint.current {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  font-size: 48px;
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.checkpoint.treasure {
+  background: linear-gradient(135deg, #f5d659 0%, #e8c547 100%);
+  border-color: #f5d659;
+  font-size: 44px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1.2) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-15px);
+  }
+}
+
+.path-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    #4caf50 0%, 
+    #4caf50 40%, 
+    #667eea 60%, 
+    #e0e0e0 80%
+  );
+  border-radius: 4px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #f5d659 0%, #e8c547 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 18px 80px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(245, 214, 89, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 40px;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(245, 214, 89, 0.6);
+}
+
+.notification-container {
+  position: relative;
+}
+
+.notification-btn {
+  position: relative;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.notification-btn.has-notifications {
+  background: #ffebee;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  min-width: 320px;
+  max-width: 400px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.notification-item:hover {
+  background: #f8f9fa;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item.warning {
+  background: #fff9f0;
+  border-left: 4px solid #ff9800;
+}
+
+.notification-item.info {
+  background: #f0f8ff;
+  border-left: 4px solid #2196f3;
+}
+
+.notif-icon {
+  font-size: 24px;
+}
+
+.notif-message {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.home-chatbot-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  z-index: 100;
+  transition: all 0.3s ease;
+  padding: 15px;
+}
+
+.home-chatbot-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+}
+
+.home-chatbot-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
+  width: 400px;
+  height: 600px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chatbot-pet-icon {
+  font-size: 40px;
+}
+
+.chatbot-pet-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.chatbot-pet-status {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.chatbot-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.2s;
+}
+
+.chatbot-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.chat-message.user {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.chat-message.pet .message-bubble {
+  background: white;
+  color: #333;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message.user .message-bubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.chatbot-input {
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  font-size: 14px;
+  outline: none;
+}
+
+.chatbot-input input:focus {
+  border-color: #667eea;
+}
+
+.chatbot-input button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.chatbot-input button:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-suggestions {
+  padding: 12px 16px;
+  background: #f8f9fa;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid #e0e0e0;
+}
+
+.chatbot-suggestions button {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chatbot-suggestions button:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .chatbot-container {
+    right: 20px;
+    left: 20px;
+    width: auto;
+    bottom: 120px;
+  }
+  
+  .home-chatbot-btn {
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+  }
+}

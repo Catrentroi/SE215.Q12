@@ -1,0 +1,237 @@
+.egg-hatching-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.egg-circle-left {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(194, 207, 255, 0.3);
+  border-radius: 50%;
+}
+
+.egg-circle-right {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 223, 186, 0.3);
+  border-radius: 50%;
+}
+
+.egg-content {
+  text-align: center;
+  z-index: 1;
+  max-width: 600px;
+  padding: 40px;
+}
+
+.egg-title {
+  color: #5275ed;
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+.egg-title.celebrate {
+  animation: bounce 0.6s ease, colorChange 2s infinite;
+}
+
+.egg {
+  font-size: 200px;
+  margin: 40px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.egg.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.egg.cracking {
+  position: relative;
+}
+
+.crack-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crack {
+  position: absolute;
+  background: #333;
+  opacity: 0;
+  animation: crackAppear 0.5s ease forwards;
+}
+
+.crack-1 {
+  width: 3px;
+  height: 60px;
+  top: 30%;
+  left: 40%;
+  transform: rotate(30deg);
+  animation-delay: 0s;
+}
+
+.crack-2 {
+  width: 3px;
+  height: 50px;
+  top: 35%;
+  left: 55%;
+  transform: rotate(-20deg);
+  animation-delay: 0.2s;
+}
+
+.crack-3 {
+  width: 3px;
+  height: 40px;
+  top: 50%;
+  left: 48%;
+  transform: rotate(10deg);
+  animation-delay: 0.4s;
+}
+
+.pet-reveal {
+  position: relative;
+  display: inline-block;
+  margin: 40px 0;
+}
+
+.pet-icon {
+  font-size: 200px;
+  animation: petAppear 0.8s ease, float 3s ease-in-out infinite;
+}
+
+.sparkles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  animation: sparkle 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confetti span {
+  font-size: 40px;
+  animation: confettiFall 2s ease-in-out infinite;
+}
+
+.confetti span:nth-child(1) { animation-delay: 0s; }
+.confetti span:nth-child(2) { animation-delay: 0.2s; }
+.confetti span:nth-child(3) { animation-delay: 0.4s; }
+.confetti span:nth-child(4) { animation-delay: 0.6s; }
+.confetti span:nth-child(5) { animation-delay: 0.8s; }
+
+.pet-name {
+  color: #5275ed;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 0;
+  animation: fadeIn 0.8s ease 0.5s both;
+}
+
+.egg-subtitle {
+  color: #666;
+  font-size: 20px;
+  margin-top: 20px;
+  animation: fadeIn 0.8s ease;
+}
+
+.egg-house-icon {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-10px) rotate(-5deg); }
+  50% { transform: translateX(10px) rotate(5deg); }
+  75% { transform: translateX(-10px) rotate(-5deg); }
+}
+
+@keyframes crackAppear {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes petAppear {
+  from { 
+    opacity: 0; 
+    transform: scale(0) rotate(0deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) rotate(360deg); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1.2) rotate(180deg); 
+  }
+}
+
+@keyframes confettiFall {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0) rotate(0deg); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(200px) rotate(360deg); 
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes colorChange {
+  0%, 100% { color: #5275ed; }
+  50% { color: #f5d659; }
+}

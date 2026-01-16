@@ -1,0 +1,362 @@
+.vocabulary-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd 0%, #90caf9 100%);
+  font-family: 'Arial', sans-serif;
+}
+
+.vocab-header {
+  background: white;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.vocab-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5275ed;
+}
+
+.vocab-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.vocab-nav button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.vocab-nav button:hover,
+.vocab-nav button.active {
+  background: #f0f4ff;
+  color: #5275ed;
+  font-weight: bold;
+}
+
+.vocab-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.view-all-btn {
+  background: #5275ed;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.vocab-actions input {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  width: 250px;
+}
+
+.vocab-actions button:not(.view-all-btn) {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.vocab-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.vocab-sloths {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.vocab-sloth {
+  font-size: 80px;
+  animation: float 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+.vocab-sloth:nth-child(1) { --i: 0; }
+.vocab-sloth:nth-child(2) { --i: 1; }
+.vocab-sloth:nth-child(3) { --i: 2; }
+.vocab-sloth:nth-child(4) { --i: 3; }
+.vocab-sloth:nth-child(5) { --i: 4; }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.vocab-grid {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.vocab-word-card {
+  padding: 12px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.vocab-word-card:hover {
+  background: #5275ed;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(82, 117, 237, 0.3);
+}
+
+.vocab-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.vocab-pagination span {
+  color: #666;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-buttons button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-buttons button:hover {
+  background: #f0f4ff;
+  border-color: #5275ed;
+}
+
+.pagination-buttons button.active {
+  background: #5275ed;
+  color: white;
+  border-color: #5275ed;
+}
+
+.vocab-scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
+}
+
+.vocab-scroll-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.6);
+}
+
+.vocab-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.vocab-word-detail {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  width: 800px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.vocab-word-detail h2 {
+  color: #5275ed;
+  font-size: 32px;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.translate-btn {
+  background: #5275ed;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.word-phonetic {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.word-audio {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.word-audio button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.review-time {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe57f 100%);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.review-time > span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.review-options {
+  display: flex;
+  gap: 12px;
+}
+
+.review-option {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #f5d659;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.review-option:hover {
+  background: #fff8e1;
+}
+
+.review-option.active {
+  background: #f5d659;
+  color: white;
+}
+
+.word-discuss {
+  margin-bottom: 20px;
+}
+
+.word-discuss button {
+  padding: 10px 20px;
+  border: 2px solid #5275ed;
+  background: white;
+  color: #5275ed;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.word-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 12px;
+}
+
+.word-tab {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -14px;
+}
+
+.word-tab.active {
+  color: #5275ed;
+  border-bottom-color: #5275ed;
+}
+
+.word-meanings h4 {
+  color: #333;
+  margin: 16px 0 8px 0;
+}
+
+.word-meanings .example {
+  color: #666;
+  font-style: italic;
+  margin: 8px 0 16px 0;
+  line-height: 1.6;
+}
